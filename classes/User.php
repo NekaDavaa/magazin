@@ -20,8 +20,30 @@ public function register($data) {
 
 }
 
-public function login() {
-	
-}
+public function login($data) {
+     
+     //Select Query
+     $this->db->query("SELECT * FROM users WHERE username = :username AND password = :password");
+     //Bind params
+     $this->db->bind(':username', $data['username']);
+     $this->db->bind(':password', $data['password']);
 
+     //Fetch the reuslt (Should be one)
+     $row = $this->db->single();
+
+     if ($this->db->rowCount() > 0) {
+             
+          echo "logged in";
+           $sessionManager = SessionManager::getInstance();
+           $sessionManager->setSession('User', $data['username']);
+
+     } 
+     else {
+     	echo "wrong password or username";
+     }
+
+
+  
+
+}
 }

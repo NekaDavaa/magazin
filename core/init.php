@@ -1,6 +1,4 @@
 <?php
-//Start Session
-session_start();
 
 //Include Configuration
 require_once('config/config.php');
