@@ -2,7 +2,10 @@
 include 'core/init.php';
 include 'includes/header.php';
 ?>
-
+<?php 
+$register = new User(); 
+$register->register("asd1", "asd2", "asd3");
+?>
 <div class="user-system-container">
     <div class="user-system-item">
          <h1>Register</h1>
