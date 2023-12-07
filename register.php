@@ -4,25 +4,24 @@ include 'core/init.php';
 include 'includes/header.php';
 ?>
 <?php 
-//Create Database Object
-$db = new Database();
-
 //Create User object
 $user = new User();
 
 //Create Validator object
 $validate = new Validator();
+
+//Take given data from user
 if (isset($_POST['submit'])) {
     //Store given data from user into array
     $data = array();
     $data['username'] = $_POST['username'];
-    $data['password'] = $_POST['password'];
+    $data['password'] = md5($_POST['password']);
     $data['phone_number'] = $_POST['phone_number'];
     //Validate the array
     $field_array = array('username', 'password', 'phone_number');
 
     if ($validate->isRequired($field_array)) {
-        echo "if entered";
+        $user->register($data);
     }
 }
 ?>
