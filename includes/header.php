@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 <title><?php echo SITE_NAME; ?></title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
   <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
@@ -12,11 +13,20 @@
                   <a href="../magazin"><?php echo SITE_NAME; ?></a>
       </div>
       <div class="profile">
+            <?php 
+            $user = new User(); 
+            if ($user->isLogged()) : ?>
+                   <div class="logout btn-danger btn-lg" >
+                  <i class="fa fa-power-off" aria-hidden="true"></i>
+                  <a href="login.php" class="">Log out</a>
+            </div>
+            <?php else :?>
             <div class="login">
             	<a href="login.php" class="btn-primary btn-lg">Login</a>
             </div>
             <div class="register">
             	<a href="register.php" class="btn-warning btn-lg">Register</a>
             </div>
+      <?php endif; ?>
       </div>
 	</div>

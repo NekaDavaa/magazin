@@ -113,3 +113,14 @@ textarea:not([rows]) {
   display: flex;
   flex-direction: column;
 }
+.logout {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+
+}
+.logout > a {
+   text-decoration-skip-ink: auto;
+  color: currentColor;
+}

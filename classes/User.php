@@ -30,20 +30,20 @@ public function login($data) {
 
      //Fetch the reuslt (Should be one)
      $row = $this->db->single();
-
      if ($this->db->rowCount() > 0) {
-             
-          echo "logged in";
+           //TODO Logged in notifications
            $sessionManager = SessionManager::getInstance();
            $sessionManager->setSession('User', $data['username']);
-
      } 
-     else {
-     	echo "wrong password or username";
-     }
-
-
-  
-
 }
+
+
+public function isLogged() {
+        $sessionManager = SessionManager::getInstance();
+       if (!$sessionManager->getSessionData("User") == NULL) {
+          return true;
+       }
+      return false;
+   }
+   
 }
