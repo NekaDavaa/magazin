@@ -14,11 +14,22 @@
       </div>
       <div class="profile">
             <?php 
+            //User object
             $user = new User(); 
+            //Logout logic
+            if (isset($_GET['action']) && $_GET['action'] == 'logout') {
+                  if ($user->isLogged()) {
+                        $user->logout();
+                        echo "Succesfully logged out";
+                        header("refresh:3;url=login.php");
+                        exit;
+                  }
+            }
+            //Display logout button
             if ($user->isLogged()) : ?>
                    <div class="logout btn-danger btn-lg" >
                   <i class="fa fa-power-off" aria-hidden="true"></i>
-                  <a href="login.php" class="">Log out</a>
+                  <a href="?action=logout">Log out</a>
             </div>
             <?php else :?>
             <div class="login">

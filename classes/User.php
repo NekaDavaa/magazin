@@ -45,5 +45,10 @@ public function isLogged() {
        }
       return false;
    }
+
+ public function logout() {
+    $sessionManager = SessionManager::getInstance();
+    $sessionManager->unsetSession("User");
+ }
    
 }

@@ -25,4 +25,10 @@ class SessionManager {
         session_destroy();
         self::$instance = null;
     }
+
+    public function unsetSession($key) {
+        if (isset($_SESSION[$key])) {
+            unset($_SESSION[$key]);
+        }
+    }
 }
