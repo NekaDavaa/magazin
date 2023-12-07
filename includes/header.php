@@ -20,8 +20,9 @@
             if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                   if ($user->isLogged()) {
                         $user->logout();
-                        echo "Succesfully logged out";
-                        header("refresh:3;url=login.php");
+                        $sessionManager = SessionManager::getInstance();
+                        $sessionManager->setSession('logoutnotification', "You have successfully logged out.");
+                        header("Location: login.php");
                         exit;
                   }
             }

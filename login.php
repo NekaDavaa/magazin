@@ -7,6 +7,12 @@ include 'includes/header.php';
 //Create User object
 $user = new User();
 
+//Check for logged users try to access the page
+if ($user->isLogged()) {
+    header('Location: index.php');
+    exit;
+}
+
 //Create Validator object
 $validate = new Validator();
 
@@ -41,6 +47,21 @@ if (isset($_POST['submit'])) {
                 <input type="password" name="password" id="password"/>
             </div>
              <div class="input-group">
+             <?php
+        //Notification for logged in 
+$sessionManager = SessionManager::getInstance();
+if ($notification = $sessionManager->getSessionData('notification')) {
+    echo "<div class='alert alert-success'>" . $notification . "</div>";
+    $sessionManager->unsetSession('notification');
+    header("refresh:2;url=index.php");
+}
+elseif ($notification = $sessionManager->getSessionData('logoutnotification')) {
+    echo "<div class='alert alert-warning'>" . $notification . "</div>";
+    $sessionManager->unsetSession('logoutnotification');
+    header("refresh:2;url=index.php");
+}
+?>
+
             <?php 
             if (isset($_POST['submit'])) {
             if (!$validate->isRequired($field_array)) {

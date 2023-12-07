@@ -34,6 +34,7 @@ public function login($data) {
            //TODO Logged in notifications
            $sessionManager = SessionManager::getInstance();
            $sessionManager->setSession('User', $data['username']);
+           $sessionManager->setSession('notification', "You have successfully logged in.");
      } 
 }
 

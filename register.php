@@ -7,6 +7,12 @@ include 'includes/header.php';
 //Create User object
 $user = new User();
 
+//Check for logged users try to access the page
+if ($user->isLogged()) {
+    header('Location: index.php');
+    exit;
+}
+
 //Create Validator object
 $validate = new Validator();
 
