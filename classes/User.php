@@ -7,11 +7,6 @@ public function __construct() {
 }
 
 public function register($data) {
-  echo "<pre>";
-  var_dump($data);
-  echo "</pre>";
-
-
   //Insert query
   $this->db->query("INSERT INTO users (username, password, phone_number) VALUES (:username, :password, :phone_number)");
   
@@ -24,4 +19,9 @@ public function register($data) {
   $this->db->execute();
 
 }
+
+public function login() {
+	
+}
+
 }
