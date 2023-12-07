@@ -9,7 +9,7 @@
 <body>
 	<div class="header">
       <div class="website-logo">
-                  <a href="../online_shop"><?php echo SITE_NAME; ?></a>
+                  <a href="../magazin"><?php echo SITE_NAME; ?></a>
       </div>
       <div class="profile">
             <div class="login">
