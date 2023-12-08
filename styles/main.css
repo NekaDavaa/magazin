@@ -138,6 +138,7 @@ textarea:not([rows]) {
     padding: 20px;
     text-align: center;
     width: 290px; 
+    gap: 10px;
     height: auto; 
     display: flex;
     flex-direction: column;
@@ -154,6 +155,10 @@ textarea:not([rows]) {
 .product-grid-item h3, .product-grid-item h4,
 .product-grid-item p {
     margin: 0; /* Added this to remove default margins */
+}
+
+.product-grid-item .product-price {
+  font-size: 20px;
 }
 
 
