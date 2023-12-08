@@ -5,7 +5,7 @@ include 'includes/header.php';
 $user = new User();
 //Product object
 $prod = new Product();
-$prod->loadFromXml("magazin_bg_products.xml");
+$prod->loadFromXml("magazin_bg_products_new.xml");
 ?>
 
  <div class="product-grid-container">
@@ -16,7 +16,7 @@ $prod->loadFromXml("magazin_bg_products.xml");
 
         foreach ($prod->getAllProducts() as $product): ?>
             <div class="product-grid-item">
-                <img src="https://w7.pngwing.com/pngs/853/610/png-transparent-christmas-and-holiday-season-merry-christmas-food-holidays-decor.png" alt="">
+                <img src="<?php echo $product->product_image; ?>" alt="">
                 <h3><?php echo $product->product_title; ?></h3>
                  <?php if ($user->isLogged()) : ?>
                  <p class="product-price"><?php echo $product->product_price; ?> lv.</p>
