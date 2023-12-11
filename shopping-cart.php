@@ -1,6 +1,20 @@
 <?php 
 include 'core/init.php';
 include 'includes/header.php'; ?>
+    
+<div class="cart-debugging">
+
+<?php
+echo "asd";
+
+
+?>
+
+
+</div>
+
+
+
     <div class="checkout-container">
         <h2>Checkout</h2>
         <form action="/submit-order" method="post">

@@ -9,14 +9,6 @@ $prod->loadFromXml("magazin_bg_products_new.xml");
 //Cart object
 $cart = new Cart();
 ?>
-<div class="cart-debugging">
-
-
-
-
-</div>
-
-
   <!-- Main FE dont DELETE -->
  <div class="product-grid-container">
         <?php  

@@ -31,7 +31,6 @@ public function login($data) {
      //Fetch the reuslt (Should be one)
      $row = $this->db->single();
      if ($this->db->rowCount() > 0) {
-           //TODO Logged in notifications
            $sessionManager = SessionManager::getInstance();
             $sessionManager->setSession('User', ['id' => $row->id, 'username' => $data['username']]);
            $sessionManager->setSession('notification', "You have successfully logged in.");
