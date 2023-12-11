@@ -4,11 +4,6 @@ include 'includes/header.php';
 $cart = new Cart();
 $user = new User();
 ?>
-    
-
-
-
-
     <div class="checkout-container">
         <h2>Checkout</h2>
         <form action="/submit-order" method="post">
@@ -34,10 +29,6 @@ $user = new User();
         <a href='removeItem.php?product_id=<?php echo $productId; ?>' class='remove-item'>Remove item</a>
     </div>
 <?php endforeach; ?>
-
-
-
-    
 </div>
              <div class="payment-info">
                 <h3>Payment Information</h3>

@@ -26,7 +26,6 @@ include 'includes/header.php'; ?>
                     <td>$100.00</td>
                     <td>Completed</td>
                 </tr>
-                <!-- More orders -->
             </table>
         </div>
     </div>
