@@ -28,10 +28,16 @@
             }
             //Display logout button
             if ($user->isLogged()) : ?>
-                   <div class="logout btn-danger btn-lg" >
+            <div class="right-side-wrapper">
+            <div class="mini-header-cart btn-primary btn-lg">
+                <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                  <span class="cart-count">0</span></a>
+            </div>
+            <div class="logout btn-danger btn-lg" >
                   <i class="fa fa-power-off" aria-hidden="true"></i>
                   <a href="?action=logout">Log out</a>
             </div>
+      </div>
             <?php else :?>
             <div class="login">
             	<a href="login.php" class="btn-primary btn-lg">Login</a>
