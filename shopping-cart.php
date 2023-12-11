@@ -1,7 +1,6 @@
 <?php 
 include 'core/init.php';
 include 'includes/header.php'; ?>
-    
     <div class="checkout-container">
         <h2>Checkout</h2>
         <form action="/submit-order" method="post">
@@ -10,9 +9,7 @@ include 'includes/header.php'; ?>
                 <input type="text" name="name" placeholder="Full Name">
                 <input type="text" name="address" placeholder="Address">
                 <input type="text" name="city" placeholder="City">
-                <!-- Add more fields as necessary -->
             </div>
-
           <div class="order-summary">
     <h3>Order Summary</h3>
     <div class="item">
@@ -32,8 +29,6 @@ include 'includes/header.php'; ?>
         <a href="#">Remove item</a>
     </div>
 </div>
-
-
              <div class="payment-info">
                 <h3>Payment Information</h3>
                 <div class="payment-choice">
@@ -46,7 +41,6 @@ include 'includes/header.php'; ?>
                     Add New Card
                 </label>
             </div>
-
               <div id="saved-card-info" style="display: block;">
     <!-- Add foreach between labels -->
     <label class="card-network-label">
@@ -55,8 +49,6 @@ include 'includes/header.php'; ?>
         <p>My first card</p>
     </label>
 </div>
-
-
                 <div id="new-card-info" style="display: none;">
     <input type="text" name="cardNumber" placeholder="Card Number">
     <input type="text" name="expDate" placeholder="Expiry Date">
@@ -67,17 +59,12 @@ include 'includes/header.php'; ?>
         Save this card for future use
     </label>
 </div>
-
-            </div>
-
-          <button type="submit" class="place-order-button">
+</div>
+<button type="submit" class="place-order-button">
     Place Order <span class="total-price">Total: $30</span>
 </button>
-
-
         </form>
     </div>
-
     <script type="text/javascript">
         function toggleCardInput(option) {
             var savedCardInfo = document.getElementById('saved-card-info');
@@ -86,9 +73,4 @@ include 'includes/header.php'; ?>
             newCardInfo.style.display = option === 'new' ? 'block' : 'none';
         }
     </script>
-
-
- 
-
-          
-
+<?php include 'includes/footer.php'; ?>

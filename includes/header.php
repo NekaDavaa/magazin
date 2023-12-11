@@ -35,11 +35,18 @@
                   <span class="cart-count">0</span>
             </div>
             </a>
+            
+            <a href="my-profile.php">
+            <div class="mini-header-profle-icon btn-warning btn-lg">
+               <i class="fa fa-user" aria-hidden="true"></i>
+            </div>
+            </a>
+
             <div class="logout btn-danger btn-lg" >
                   <i class="fa fa-power-off" aria-hidden="true"></i>
                   <a href="?action=logout">Log out</a>
             </div>
-      </div>
+            </div>
             <?php else :?>
             <div class="login">
             	<a href="login.php" class="btn-primary btn-lg">Login</a>

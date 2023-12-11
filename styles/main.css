@@ -176,7 +176,7 @@ textarea:not([rows]) {
     position: absolute;
     top: -10px;
     right: -10px;
-    background-color: orange;
+    background-color: #4a3d24;
     color: white;
     font-weight: 600;
     border-radius: 50%;
@@ -295,4 +295,35 @@ img.card-network-logo {
 .payment-choice {
   display: flex;
   gap:15px;
+}
+
+
+.profile-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.profile-info, .order-history {
+    margin-bottom: 20px;
+}
+
+.profile-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 5px;
+}
+
+.profile-container th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.profile-container th {
+    background-color: #f2f2f2;
+}
+
+.profile-container tr:nth-child(even) {
+    background-color: #f9f9f9;
 }
