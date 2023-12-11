@@ -2,20 +2,10 @@
 include 'core/init.php';
 include 'includes/header.php'; 
 $cart = new Cart();
+$user = new User();
 ?>
     
-<div class="cart-debugging">
 
-
-
-
-
-  
-
-
-
-
-</div>
 
 
 
@@ -23,10 +13,9 @@ $cart = new Cart();
         <h2>Checkout</h2>
         <form action="/submit-order" method="post">
             <div class="billing-info">
-                <h3>Billing Information</h3>
-                <input type="text" name="name" placeholder="Full Name">
-                <input type="text" name="address" placeholder="Address">
-                <input type="text" name="city" placeholder="City">
+            <h3>Billing Information</h3>
+            <p>Username: <i><?php echo $user->getUsername(); ?></i></p>
+            <p>Phone Number: <i><?php echo $user->getPhoneNumber(); ?></i></p>
             </div>
           <div class="order-summary">
     <h3>Order Summary</h3>
@@ -35,7 +24,7 @@ $cart = new Cart();
         <img src='<?php echo $productInCart['product_image']; ?>' class='product-image'>
         <div class="product-info">
             <p class="product-title"><?php echo $productInCart['product_title']; ?></p>
-            <p class="product-price">$<?php echo $productInCart['price']; ?></p>
+            <p class="product-price"><?php echo $productInCart['price']; ?> lv.</p>
         </div>
         <div class="quantity-modify-wrapper">
             <a href='decreaseQuantity.php?product_id=<?php echo $productId; ?>' class='quantity-modify decrease'>-</a>
@@ -82,7 +71,7 @@ $cart = new Cart();
 </div>
 </div>
 <button type="submit" class="place-order-button">
-    Place Order <span class="total-price">Total: $30</span>
+    Place Order <span class="total-price">Total: <?php echo $cart->getTotalPrice() . " lv.";?></span>
 </button>
         </form>
     </div>

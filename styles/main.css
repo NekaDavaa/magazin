@@ -356,3 +356,34 @@ img.card-network-logo {
 .profile-container tr:nth-child(even) {
     background-color: #f9f9f9;
 }
+.buy-now-form .buy-button {
+    width: 100%;
+    padding: 0px 5px;
+}
+
+.billing-info {
+    background-color: #ffffff;
+    border-left: 4px solid #2e6da4;
+    padding: 15px;
+    width: 300px;
+    margin-top: 10px;
+    margin-left: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.billing-info h3 {
+    color: #2e6da4;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.billing-info p {
+    color: #333333;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+
+
+
+

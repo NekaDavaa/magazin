@@ -24,7 +24,7 @@ $cart = new Cart();
 
                  <?php if ($user->isLogged()) : ?>
                  <p class="product-price"><?php echo $product->product_price; ?> lv.</p>
-<form action="add-to-cart.php" method="post">
+<form action="add-to-cart.php" method="post" class="buy-now-form">
 <input type="hidden" name="product_id" value="<?php echo $product->product_sku; ?>">
 <input type="hidden" name="product_title" value="<?php echo $product->product_title; ?>">
 <input type="hidden" name="product_image" value="<?php echo $product->product_image; ?>">

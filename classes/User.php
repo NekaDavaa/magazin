@@ -50,5 +50,30 @@ public function isLogged() {
     $sessionManager = SessionManager::getInstance();
     $sessionManager->unsetSession("User");
  }
+
+ public function getUsername() {
+    $sessionManager = SessionManager::getInstance();
+     if (!$sessionManager->getSessionData("User") == NULL) {
+          $sesionData = $sessionManager->getSessionData("User");
+          $username = $sesionData['username'];
+          return $username;
+       }
+ }
+
+public function getPhoneNumber() {
+    $sessionManager = SessionManager::getInstance();
+    $userData = $sessionManager->getSessionData("User");
+
+    if ($userData != NULL) {
+        $userId = $userData['id'];
+        $this->db->query("SELECT phone_number FROM users WHERE id = :id");
+        $this->db->bind(':id', $userId);
+        $row = $this->db->single();
+        if ($row) {
+          return $row->phone_number;
+        } 
+    } 
+}
+
    
 }
