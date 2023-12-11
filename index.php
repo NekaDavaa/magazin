@@ -12,16 +12,10 @@ $cart = new Cart();
   <!-- Main FE dont DELETE -->
  <div class="product-grid-container">
         <?php  
-          // echo "<pre>";
-          // var_dump($prod->getAllProducts());
-          // echo "</pre>";
-
         foreach ($prod->getAllProducts() as $product): ?>
             <div class="product-grid-item">
                 <img src="<?php echo $product->product_image; ?>" alt="">
                 <h3><?php echo $product->product_title; ?></h3>
-
-
                  <?php if ($user->isLogged()) : ?>
                  <p class="product-price"><?php echo $product->product_price; ?> lv.</p>
 <form action="add-to-cart.php" method="post" class="buy-now-form">

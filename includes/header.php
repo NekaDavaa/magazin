@@ -32,8 +32,7 @@
             <a href="shopping-cart.php">
             <div class="mini-header-cart btn-primary btn-lg">
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                  <span class="cart-count">
-                        <?php
+                  <span class="cart-count"><?php
                          $cart = new Cart();
                           if (!$cart->getCartItems() == null) {
                          $items_in_cart = count($cart->getCartItems());
@@ -46,8 +45,7 @@
                         else {
                         echo "0";
                         }
-                        ?>
-                  </span>
+                        ?></span>
             </div>
             </a>
             
