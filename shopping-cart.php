@@ -1,14 +1,18 @@
 <?php 
 include 'core/init.php';
-include 'includes/header.php'; ?>
+include 'includes/header.php'; 
+$cart = new Cart();
+?>
     
 <div class="cart-debugging">
 
-<?php
-echo "asd";
 
 
-?>
+
+
+  
+
+
 
 
 </div>
@@ -26,22 +30,25 @@ echo "asd";
             </div>
           <div class="order-summary">
     <h3>Order Summary</h3>
-    <div class="item">
-        <img src="https://dummyimage.com/193x129.png/cc0000/ffffff" alt="Item 1" class="product-image">
-        <p>Item 1 - $10</p>
-        <a href="#" class="quantity-modify decrease">-</a>
-        <span class="quantity">1</span>
-        <a href="#" class="quantity-modify increase">+</a>
-        <a href="#">Remove item</a>
+<?php foreach ($cart->getCartItems() as $productId => $productInCart): ?>
+    <div class='item'>
+        <img src='<?php echo $productInCart['product_image']; ?>' class='product-image'>
+        <div class="product-info">
+            <p class="product-title"><?php echo $productInCart['product_title']; ?></p>
+            <p class="product-price">$<?php echo $productInCart['price']; ?></p>
+        </div>
+        <div class="quantity-modify-wrapper">
+            <a href='decreaseQuantity.php?product_id=<?php echo $productId; ?>' class='quantity-modify decrease'>-</a>
+            <span class='quantity'><?php echo $productInCart['quantity']; ?></span>
+            <a href='increaseQuantity.php?product_id=<?php echo $productId; ?>' class='quantity-modify increase'>+</a>
+        </div>
+        <a href='removeItem.php?product_id=<?php echo $productId; ?>' class='remove-item'>Remove item</a>
     </div>
-    <div class="item">
-        <img src="https://dummyimage.com/193x129.png/cc0000/ffffff" alt="Item 2" class="product-image">
-        <p>Item 2 - $20</p>
-        <a href="#" class="quantity-modify decrease">-</a>
-        <span class="quantity">1</span>
-        <a href="#" class="quantity-modify increase">+</a>
-        <a href="#">Remove item</a>
-    </div>
+<?php endforeach; ?>
+
+
+
+    
 </div>
              <div class="payment-info">
                 <h3>Payment Information</h3>
