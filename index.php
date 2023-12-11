@@ -11,15 +11,7 @@ $cart = new Cart();
 ?>
 <div class="cart-debugging">
 
-<?php
 
-
-
-echo "<pre>";
-var_dump ($cart->getCartItems());
-echo "</pre>";
-
-?>
 
 
 </div>
@@ -36,13 +28,15 @@ echo "</pre>";
             <div class="product-grid-item">
                 <img src="<?php echo $product->product_image; ?>" alt="">
                 <h3><?php echo $product->product_title; ?></h3>
+
+
                  <?php if ($user->isLogged()) : ?>
                  <p class="product-price"><?php echo $product->product_price; ?> lv.</p>
 <form action="add-to-cart.php" method="post">
 <input type="hidden" name="product_id" value="<?php echo $product->product_sku; ?>">
 <input type="hidden" name="product_title" value="<?php echo $product->product_title; ?>">
 <input type="hidden" name="product_image" value="<?php echo $product->product_image; ?>">
-<input type="hidden" name="quantity" value="1"> <!-- Default quantity -->
+<input type="hidden" name="quantity" value="1"> 
 <input type="hidden" name="price" value="<?php echo $product->product_price; ?>">
 <button type="submit" class="buy-button">Buy Now</button>
 </form>
