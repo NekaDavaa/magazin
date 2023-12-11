@@ -29,10 +29,12 @@
             //Display logout button
             if ($user->isLogged()) : ?>
             <div class="right-side-wrapper">
+            <a href="shopping-cart.php">
             <div class="mini-header-cart btn-primary btn-lg">
-                <a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                  <span class="cart-count">0</span></a>
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                  <span class="cart-count">0</span>
             </div>
+            </a>
             <div class="logout btn-danger btn-lg" >
                   <i class="fa fa-power-off" aria-hidden="true"></i>
                   <a href="?action=logout">Log out</a>
