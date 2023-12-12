@@ -14,4 +14,17 @@ class Validator {
 		}
 		return true;
 	 }
+
+        // Validate Card Details
+    public function isValidCard($cardNumber, $cvv) {
+        // Check card number length
+        if (strlen($cardNumber) != 16) {
+            return false;
+        }
+        // Check CVV length
+        if (strlen($cvv) != 3) {
+            return false;
+        }
+        return true;
+    }
 }
