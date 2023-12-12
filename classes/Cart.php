@@ -16,8 +16,7 @@ class Cart {
     return null;
 }
 
-
-    public function addItem($productId, $productTitle, $productImage, $quantity, $price) {
+  public function addItem($productId, $productTitle, $productImage, $quantity, $price) {
         $cartSessionKey = $this->getCartSessionKey();
         if (!$cartSessionKey) {
             return; 
@@ -63,12 +62,41 @@ class Cart {
         if (!$cart) {
             return 0;
         }
-
         $total = 0;
         foreach ($cart as $item) {
             $total += $item['quantity'] * $item['price'];
         }
         return $total;
+    }
+
+     public function increaseQuantity($productId) {
+        $cart = $this->getCartItems();
+        if (isset($cart[$productId])) {
+            $cart[$productId]['quantity'] += 1;
+            $this->setCartItems($cart);
+        }
+    }
+
+    public function decreaseQuantity($productId) {
+        $cart = $this->getCartItems();
+        if (isset($cart[$productId]) && $cart[$productId]['quantity'] > 1) {
+            $cart[$productId]['quantity'] -= 1;
+            $this->setCartItems($cart);
+        } else {
+            $this->removeItem($productId);
+        }
+    }
+
+    public function getTotalItemCount() {
+        $cart = $this->getCartItems();
+        $totalItemCount = 0;
+
+        if ($cart) {
+            foreach ($cart as $item) {
+                $totalItemCount += $item['quantity'];
+            }
+        }
+        return $totalItemCount;
     }
 
     

@@ -14,7 +14,9 @@ $user = new User();
             </div>
           <div class="order-summary">
     <h3>Order Summary</h3>
-<?php foreach ($cart->getCartItems() as $productId => $productInCart): ?>
+<?php 
+if (!empty($cart->getCartItems())) {
+foreach ($cart->getCartItems() as $productId => $productInCart): ?>
     <div class='item'>
         <img src='<?php echo $productInCart['product_image']; ?>' class='product-image'>
         <div class="product-info">
@@ -22,13 +24,17 @@ $user = new User();
             <p class="product-price"><?php echo $productInCart['price']; ?> lv.</p>
         </div>
         <div class="quantity-modify-wrapper">
-            <a href='decreaseQuantity.php?product_id=<?php echo $productId; ?>' class='quantity-modify decrease'>-</a>
+            <a href='add-to-cart.php?decrease_quantity=<?php echo $productId; ?>' class='quantity-modify decrease'>-</a>
             <span class='quantity'><?php echo $productInCart['quantity']; ?></span>
-            <a href='increaseQuantity.php?product_id=<?php echo $productId; ?>' class='quantity-modify increase'>+</a>
+            <a href='add-to-cart.php?increase_quantity=<?php echo $productId; ?>' class='quantity-modify increase'>+</a>
         </div>
         <a href='removeItem.php?product_id=<?php echo $productId; ?>' class='remove-item'>Remove item</a>
     </div>
-<?php endforeach; ?>
+<?php endforeach; }
+else {
+    echo "<i>Cart is empty</i>";
+}
+?>
 </div>
              <div class="payment-info">
                 <h3>Payment Information</h3>
