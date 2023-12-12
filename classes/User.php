@@ -33,7 +33,7 @@ public function login($data) {
      if ($this->db->rowCount() > 0) {
            $sessionManager = SessionManager::getInstance();
             $sessionManager->setSession('User', ['id' => $row->id, 'username' => $data['username']]);
-           $sessionManager->setSession('notification', "You have successfully logged in.");
+           $sessionManager->setSession('notification', "You have successfully logged in. I'm redirecting you :)");
      } 
 }
 

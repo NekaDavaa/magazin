@@ -21,7 +21,7 @@
                   if ($user->isLogged()) {
                         $user->logout();
                         $sessionManager = SessionManager::getInstance();
-                        $sessionManager->setSession('logoutnotification', "You have successfully logged out.");
+                        $sessionManager->setSession('logoutnotification', "You have successfully logged out. I'm redirecting you :)");
                         header("Location: login.php");
                         exit;
                   }
