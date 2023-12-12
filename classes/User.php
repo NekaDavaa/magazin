@@ -60,14 +60,14 @@ public function isLogged() {
        }
  }
 
- // public function getUserID() {
- //    $sessionManager = SessionManager::getInstance();
- //     if (!$sessionManager->getSessionData("User") == NULL) {
- //          $sesionData = $sessionManager->getSessionData("User");
- //          $id = $sesionData['id'];
- //          return $id;
- //       }
- // }
+ public function getUserID() {
+    $sessionManager = SessionManager::getInstance();
+     if (!$sessionManager->getSessionData("User") == NULL) {
+          $sesionData = $sessionManager->getSessionData("User");
+          $id = $sesionData['id'];
+          return $id;
+       }
+ }
 
 public function getPhoneNumber() {
     $sessionManager = SessionManager::getInstance();

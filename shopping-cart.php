@@ -3,10 +3,12 @@ include 'core/init.php';
 include 'includes/header.php'; 
 $cart = new Cart();
 $user = new User();
+$payment = new Payment();
+$cards = $payment->getAllUserCards();
 ?>
     <div class="checkout-container">
         <h2>Checkout</h2>
-        <form action="/submit-order" method="post">
+        <form action="place-order.php" method="post">
             <div class="billing-info">
             <h3>Billing Information</h3>
             <p>Username: <i><?php echo $user->getUsername(); ?></i></p>
@@ -50,11 +52,21 @@ else {
             </div>
               <div id="saved-card-info" style="display: block;">
     <!-- Add foreach between labels -->
+    <!-- add php here -->
+    <?php if (empty($cards)): ?>
+    <i>Hey, add your card for easier checkout in the future :)</i>
+<?php else: ?>
+    <?php foreach ($cards as $card) : ?>
+    <?php 
+    $cardFormat = substr($card->card_number, -4); ?>
     <label class="card-network-label">
         <input type="radio" name="savedCard" value="card1" checked>
-        <img src="https://image.pngaaa.com/837/176837-middle.png" class="card-network-logo" alt="Visa" /> <span>**** **** **** 1234</span>
-        <p>My first card</p>
+        <img src="https://image.pngaaa.com/837/176837-middle.png" class="card-network-logo" alt="Visa" /> <span>**** **** **** <?php echo $cardFormat; ?></span>
+        <p><?php echo $card->name_of_card; ?></p>
     </label>
+<?php endforeach; ?>
+<?php endif; ?>
+    <!-- end php here -->
 </div>
                 <div id="new-card-info" style="display: none;">
     <input type="text" name="cardNumber" placeholder="Card Number">
@@ -93,7 +105,7 @@ echo '</div>';
     </div>
 </div>
 </div>
-<button type="submit" class="place-order-button">
+<button type="submit" name ="place-order-button" class="place-order-button">
     Place Order <span class="total-price">Total: <?php echo $cart->getTotalPrice() . " lv.";?></span>
 </button>
         </form>
