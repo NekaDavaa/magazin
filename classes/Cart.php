@@ -98,37 +98,4 @@ class Cart {
         }
         return $totalItemCount;
     }
-
-    
-
-
-
-    
-
-    /* Cart functions end */
-
-    /*
-    public function checkout() {
-        $user = $this->sessionManager->getSessionData('User');
-        if (!$user) {
-            // Handle the case where the user is not logged in
-            return false;
-        }
-
-        $order = new Order();
-        $totalPrice = $this->getTotalPrice();
-        
-        // Create an order and get the order ID
-        $orderId = $order->createOrder($user['id'], $totalPrice);
-        
-        if ($orderId) {
-            // Clear the cart items after successful checkout
-            $this->setCartItems([]);
-            return $orderId;
-        } else {
-            return false; // Checkout failed
-        }
-    }
-    */
- 
 }

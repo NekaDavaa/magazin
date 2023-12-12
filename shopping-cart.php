@@ -58,13 +58,39 @@ else {
 </div>
                 <div id="new-card-info" style="display: none;">
     <input type="text" name="cardNumber" placeholder="Card Number">
-    <input type="text" name="expDate" placeholder="Expiry Date">
+     <!-- EXPIRY DATE START -->
+    <?php
+    $currentMonth = 1;
+    $currentYear = 2024; 
+// Month selection
+echo '<div class="expiry-date-wrapper">';
+echo '<label for="expiry-date">Expiry Date:</label>';
+echo '<div class="expiry-date-selects">';
+echo '<label for="month">Month:</label>';
+echo '<select name="month" id="month">';
+for ($m = $currentMonth; $m <= 12; $m++) {
+    echo "<option value='$m'>$m</option>";
+}
+echo '</select>';
+// Year selection
+echo '<label for="year">Year:</label>';
+echo '<select name="year" id="year">';
+for ($y = $currentYear; $y <= $currentYear + 10; $y++) { 
+    echo "<option value='$y'>$y</option>";
+}
+echo '</select>';
+echo '</div>';
+echo '</div>';
+   ?>
+     <!-- EXPIRY DATE END -->
     <input type="text" name="cvv" placeholder="CVV">
-    <input type="text" name="savedCardName" placeholder="Name this card (e.g., 'My Visa Card')">
     <label>
-        <input type="checkbox" name="saveCard" value="yes">
-        Save this card for future use
+    <input type="checkbox" id="saveCard" name="saveCard" value="yes">
+    Save this card for future use
     </label>
+    <div id="cardNameField" style="display: none;">
+    <input type="text" id="savedCardName" name="savedCardName" placeholder="Name this card (e.g., 'My Visa Card')">
+    </div>
 </div>
 </div>
 <button type="submit" class="place-order-button">
@@ -79,5 +105,17 @@ else {
             savedCardInfo.style.display = option === 'saved' ? 'block' : 'none';
             newCardInfo.style.display = option === 'new' ? 'block' : 'none';
         }
+      document.addEventListener('DOMContentLoaded', function() {
+    var checkBox = document.getElementById('saveCard');
+    var cardNameField = document.getElementById('cardNameField');
+
+    checkBox.addEventListener('change', function() {
+        if (this.checked) {
+            cardNameField.style.display = 'block';
+        } else {
+            cardNameField.style.display = 'none';
+        }
+    });
+});
     </script>
 <?php include 'includes/footer.php'; ?>

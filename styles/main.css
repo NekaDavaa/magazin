@@ -384,6 +384,37 @@ img.card-network-logo {
 }
 
 
+.expiry-date-wrapper {
+    padding: 15px;
+     border: 1px solid black;
+     width: 95%;
+}
+
+.expiry-date-selects {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+select#month, select#year {
+    padding: 10px;
+    border: 1px solid #a19d9d;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #333;
+}
+
+label[for="expiry-date"] {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: unset;
+}
+label[for="month"], label[for="year"] {
+    font-weight: unset;
+}
+
+
+
 
 
 
