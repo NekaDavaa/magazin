@@ -19,6 +19,7 @@ $order = new Order();
 $cart = new Cart();
 
 if (isset($_POST['place-order-button'])) {
+	
 	  //Empty Cart 
 	  if (empty($cart->getCartItems())) {
 	  $sessionManager->setSession('notification', 'Cart is empty');
@@ -27,8 +28,9 @@ if (isset($_POST['place-order-button'])) {
 	   }
 	   else {
 	   	//Cart with items
-	   $card_number = $_POST['cardNumber'];
-      $cvv = $_POST['cvv'];
+	  $card_number = $_POST['cardNumber'];
+     $cvv = $_POST['cvv'];
+     $saved_card_name = $_POST['savedCardName'];
 	  $choosen_saved_card = $_POST['savedCard'];
 	  $total_cart_price = $_POST['TotalCartPrice'];
 	  $rand_digits = rand(100000, 999999);
@@ -78,6 +80,7 @@ if (isset($_POST['place-order-button'])) {
             else {
             	 //This is saved card with name
             	 if ($validate->isValidCard($card_number, $cvv) == true) {
+             	$payment->saveCard($user_id, $card_number, $cvv, $saved_card_name);
              	$order->loadData($order_data);
 				$result = $order->save();
 				if ($result) {
@@ -118,5 +121,5 @@ if (isset($_POST['place-order-button'])) {
 	}
    
   
-	   }	 
+}	
 }
