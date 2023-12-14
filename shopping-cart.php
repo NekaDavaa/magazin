@@ -23,7 +23,7 @@ foreach ($cart->getCartItems() as $productId => $productInCart): ?>
         <img src='<?php echo $productInCart['product_image']; ?>' class='product-image'>
         <div class="product-info">
             <p class="product-title"><?php echo $productInCart['product_title']; ?></p>
-            <p class="product-price"><?php echo $productInCart['price']; ?> lv.</p>
+            <p class="product-price"><?php echo $cart->getTotalPriceForProduct($productId); ?> lv.</p>
         </div>
         <div class="quantity-modify-wrapper">
             <a href='add-to-cart.php?decrease_quantity=<?php echo $productId; ?>' class='quantity-modify decrease'>-</a>

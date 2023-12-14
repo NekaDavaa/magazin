@@ -105,4 +105,12 @@ class Cart {
     }
 }
 
+   public function getTotalPriceForProduct($productId) {
+        $cart = $this->getCartItems();
+        if (isset($cart[$productId])) {
+            return $cart[$productId]['quantity'] * $cart[$productId]['price'];
+        }
+        return 0;
+    }
+
 }
