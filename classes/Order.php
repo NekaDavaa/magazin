@@ -2,9 +2,11 @@
 class Order {
     private $db;
     private $data;
+    private $user;
 
     public function __construct() {
         $this->db = new Database();
+        $this->user = new User();
     }
 
     public function loadData(array $data) {
@@ -22,5 +24,24 @@ class Order {
         $this->db->bind(':order_status', $this->data['order_status']);
 
         return $this->db->execute();
+    }
+
+    public function getUserOrders() {
+        if ($this->user->isLogged()) {
+        $userID = $this->user->getUserID();
+        $this->db->query("SELECT * FROM orders WHERE order_by = :user_id");
+        $this->db->bind(':user_id', $userID);
+        $rows = $this->db->resultset();
+        return $rows;
+        }
+        else {
+        return array();
+        }
+    }
+      public function countUserOrders() {
+        if ($this->user->isLogged()) {
+            $orders = $this->getUserOrders();
+        return count($orders);
+    }
     }
 }

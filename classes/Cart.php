@@ -98,4 +98,11 @@ class Cart {
         }
         return $totalItemCount;
     }
+    public function resetCart() {
+    $cartSessionKey = $this->getCartSessionKey();
+    if ($cartSessionKey) {
+        $this->sessionManager->setSession($cartSessionKey, []);
+    }
+}
+
 }

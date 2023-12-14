@@ -412,3 +412,25 @@ label[for="expiry-date"] {
 label[for="month"], label[for="year"] {
     font-weight: unset;
 }
+.succesful-order {
+    text-align: center;
+    margin-top:100px;
+}
+
+.profile-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.profile-name-phone {
+    display: flex;
+    flex-direction: column;
+}
+.fluid-wrapper {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}

@@ -52,6 +52,7 @@ if (isset($_POST['place-order-button'])) {
 		$order->loadData($order_data);
         $result = $order->save();
         if ($result) {
+    	sleep(2);
     	header('Location: successful-order.php');
     	exit();
 
@@ -80,6 +81,7 @@ if (isset($_POST['place-order-button'])) {
              	$order->loadData($order_data);
 				$result = $order->save();
 				if ($result) {
+				sleep(2);
 				header('Location: successful-order.php');
 				exit();
 				} else {
@@ -98,6 +100,7 @@ if (isset($_POST['place-order-button'])) {
              $order->loadData($order_data);
 				$result = $order->save();
 				if ($result) {
+				sleep(2);
 				header('Location: successful-order.php');
 				exit();
 				} else {
