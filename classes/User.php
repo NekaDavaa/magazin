@@ -16,7 +16,16 @@ public function register($data) {
   $this->db->bind(':phone_number', $data['phone_number']);
    
   //Execute
-  $this->db->execute();
+  if ($this->db->execute()) {
+      $userId = $this->db->lastInsertId();
+     $sessionManager = SessionManager::getInstance();
+       $this->autoLogin($data['username'], $userId);
+     $sessionManager->setSession('notification', "You have successfully registered. I'm redirecting you :)");
+     return true;
+  }
+  else {
+        return false;
+    }
 
 }
 
@@ -83,6 +92,11 @@ public function getPhoneNumber() {
         } 
     } 
 }
+
+private function autoLogin($username, $userId) {
+        $sessionManager = SessionManager::getInstance();
+        $sessionManager->setSession('User', ['id' => $userId, 'username' => $username]);
+    }
 
    
 }

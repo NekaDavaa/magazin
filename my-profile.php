@@ -57,7 +57,7 @@ switch ($fluidMeterValue) {
                     <td><?php echo $order->order_id; ?></td>
                     <td><?php echo $order->order_date; ?></td>
                     <td><?php echo $order->order_amount; ?></td>
-                    <td>Paid</td>
+                    <td style="color:green;">Paid</td>
                     </tr>
 <?php endforeach; ?>
 <?php endif; ?>

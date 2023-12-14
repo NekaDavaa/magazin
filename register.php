@@ -51,6 +51,20 @@ if (isset($_POST['submit'])) {
                 <input type="number" name="phone_number" id="phone_number"/>
             </div>
               <div class="input-group">
+                <?php
+        //Notification for logged in 
+$sessionManager = SessionManager::getInstance();
+if ($notification = $sessionManager->getSessionData('notification')) {
+    echo "<div class='alert alert-success'>" . $notification . "</div>";
+    $sessionManager->unsetSession('notification');
+    header("refresh:2;url=index.php");
+}
+elseif ($notification = $sessionManager->getSessionData('logoutnotification')) {
+    echo "<div class='alert alert-warning'>" . $notification . "</div>";
+    $sessionManager->unsetSession('logoutnotification');
+    header("refresh:2;url=index.php");
+}
+?>
             <?php 
             if (isset($_POST['submit'])) {
             if (!$validate->isRequired($field_array)) {
