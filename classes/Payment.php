@@ -37,17 +37,14 @@ class Payment {
       }
     }
      
-     public function isCardSelected($selectedCardId) {
+        public function isCardSelected($selectedCardNumber) {
         $cards = $this->getAllUserCards();
         
-        var_dump($cards);
-
-        // foreach ($cards as $card) {
-        //     if ($card->id == $selectedCardId) { // Assuming 'id' is the identifier of the card
-        //         return true;
-        //     }
-        // }
-        // return false;
-    }
-
+        foreach ($cards as $card) {
+            if ($card->card_number == $selectedCardNumber) {
+                return true;
+            }
+        }
+        return false;
+    }    
 }

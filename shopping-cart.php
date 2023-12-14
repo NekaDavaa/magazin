@@ -67,7 +67,7 @@ else {
     <?php 
     $cardFormat = substr($card->card_number, -4); ?>
     <label class="card-network-label">
-        <input type="radio" name="savedCard" value="card1" checked>
+        <input type="radio" name="savedCard" value="<?php echo $card->card_number;?>" checked>
         <img src="https://image.pngaaa.com/837/176837-middle.png" class="card-network-logo" alt="Visa" /> <span>**** **** **** <?php echo $cardFormat; ?></span>
         <p><?php echo $card->name_of_card; ?></p>
     </label>
@@ -112,6 +112,7 @@ echo '</div>';
     </div>
 </div>
 </div>
+<input type="hidden" name="TotalCartPrice" value="<?php echo $cart->getTotalPrice(); ?>">
 <button type="submit" name ="place-order-button" class="place-order-button">
     Place Order <span class="total-price">Total: <?php echo $cart->getTotalPrice() . " lv.";?></span>
 </button>
