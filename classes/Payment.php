@@ -36,4 +36,18 @@ class Payment {
         return array();
       }
     }
+     
+     public function isCardSelected($selectedCardId) {
+        $cards = $this->getAllUserCards();
+        
+        var_dump($cards);
+
+        // foreach ($cards as $card) {
+        //     if ($card->id == $selectedCardId) { // Assuming 'id' is the identifier of the card
+        //         return true;
+        //     }
+        // }
+        // return false;
+    }
+
 }

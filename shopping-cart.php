@@ -39,6 +39,13 @@ else {
 ?>
 </div>
              <div class="payment-info">
+                 
+                 <?php 
+                 $sessionManager = SessionManager::getInstance();
+         if ($notification = $sessionManager->getSessionData('notification')) {
+    echo "<div class='alert alert-danger'>" . $notification . "</div>";
+    $sessionManager->unsetSession('notification');}
+                 ?>
                 <h3>Payment Information</h3>
                 <div class="payment-choice">
                 <label>
