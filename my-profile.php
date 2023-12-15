@@ -8,22 +8,26 @@ $all_order = new Order();
 $user = new User();
 $user_orders = $all_order->getUserOrders();
 $counted_user_orders = $all_order->countUserOrders();
-$fluidMeterValue = $counted_user_orders + 1; 
-switch ($fluidMeterValue) {
-    case '2':
-    $fluid_message = "2 Orders left to your free delivery :)";
-    break;
 
-    case '3':
-    $fluid_message = "1 Orders left to your free delivery :)";
-    break;
-
-    case '4':
-    $fluid_message = "Claim your reward :)";
-    break;
-      default: 
-      $fluid_message = "3 Orders left to your free delivery :)";
+$fluidMeterValue = ($counted_user_orders % 3) + 1;
+if ($fluidMeterValue == 1 && $counted_user_orders != 0) {
+    $fluidMeterValue = 4;
 }
+
+switch ($fluidMeterValue) {
+    case 2:
+        $fluid_message = "2 Orders left to your free delivery :)";
+        break;
+    case 3:
+        $fluid_message = "1 Order left to your free delivery :)";
+        break;
+    case 4:
+        $fluid_message = "Claim your reward :)";
+        break;
+    default: 
+        $fluid_message = "3 Orders left to your free delivery :)";
+}
+
 
 ?>
   <script src="fluid.js"></script>
